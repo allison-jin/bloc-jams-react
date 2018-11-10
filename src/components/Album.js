@@ -11,9 +11,59 @@ class Album extends Component {
     });
 
     this.state ={
-      album: album
+      album: album,
+      currentSong: album.songs[0],
+      isPlaying: false,
+      isHovered: null
     };
+
+    this.audioElement = document.createElement('audio');
+    this.audioElement.src = album.songs[0].audioSrc;
   }
+
+    play(){
+      this.audioElement.play();
+      this.setState({ isPlaying: true });
+    }
+
+    pause(){
+      this.audioElement.pause();
+      this.setState({ isPlaying: false });
+    }
+
+    setSong(song){
+      this.audioElement.src = song.audioSrc;
+      this.setState({ currentSong: song });
+    }
+
+    handleSongClick(song){
+      const isSameSong = this.state.currentSong === song;
+      if (this.state.isPlaying && isSameSong) {
+        this.pause();
+      } else {
+        if (!isSameSong) { this.setSong(song); }
+        this.play();
+      }
+    }
+
+    onMouseEnter(song) {
+        this.setState({ isHovered: song });
+    }
+
+    onMouseLeave(song) {
+        this.setState({ isHovered: null });
+    }
+
+    icons(song, index) {
+      if(this.state.currentSong === song && this.state.isPlaying === true) {
+         return <span className="icon ion-md-pause"></span>
+       } else if (this.state.isHovered === song){
+           return <span className="icon ion-md-play"></span>
+       }
+         else {
+           return <span>{index + 1}</span>
+         }
+      };
 
   render(){
     return(
@@ -35,20 +85,27 @@ class Album extends Component {
             </colgroup>
 
             <tbody>
-              { this.state.album.songs.map( (song, index) =>
-                <tr className="song" key = {index} >
-                <td> { index+1 } </td>
+              {
+                this.state.album.songs.map( (song, index) =>
+                <tr className="song" key = {index}
+                  onClick={ () => this.handleSongClick(song) }
+                  onMouseEnter ={ () => this.onMouseEnter(song) }
+                  onMouseLeave ={ () => this.onMouseLeave(null) } >
+
+                  { this.icons(song,index) }
+
                 <td> { song.title } </td>
                 <td> { song. duration } </td>
                 </tr>
 
               )}
+
             </tbody>
 
           </table>
 
       </section>
     );
-  }
+  };
 }
 export default Album;
