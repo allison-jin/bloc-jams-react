@@ -90,14 +90,13 @@ class Album extends Component {
         var minutes = Math.floor(inputTime / 60);
         var seconds = Math.floor(inputTime % 60);
 
-        if (minutes > 0) {
-            return minutes + ":" + (seconds < 10 ? 0 : seconds);
-        } else if (seconds < 10 && seconds > 0) {
-            return "0:" + "0" + seconds;
-        } else {
-            return "-:--";
-        }
-    }
+        if (inputTime) {
+             seconds = seconds < 10 ? "0" + seconds : seconds
+             return minutes + ":" + seconds
+          } else {
+                 return "-:--"
+           }
+     }
 
     handleTimeChange(e) {
       const newTime = this.audioElement.duration * e.target.value;
@@ -159,7 +158,7 @@ class Album extends Component {
                   { this.icons(song,index) }
 
                 <td> { song.title } </td>
-                <td> { song. duration } </td>
+                <td> {this.formatTime(song.duration)} </td>
                 </tr>
 
               )}
