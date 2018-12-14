@@ -1,0 +1,40 @@
+
+.hero-title {
+	position: relative;
+	text-align: center;
+	font-family: cursive;
+	font-style: italic;
+	font-size: 3rem;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: 0.5rem;
+	text-shadow: 2px 2px 1px green;
+	color: #000001;
+	padding-top: 150px;
+	padding-bottom: 150px;
+	visibility:visible;
+	-webkit-animation:fade;
+	-webkit-animation-duration:4s;
+
+
+  background-image: linear-gradient(to bottom, #fff 0%,#67309D 100%);
+}
+
+@-webkit-keyframes fade{
+	0%{opacity:0;}
+	100%{opacity:1}
+}
+
+.selling-points{
+  display: inline-block;
+  width: 200px;
+  position: relative;
+  padding: 0px 50px;
+
+}
+.point-title {
+ position: relative;
+ text-align: center;
+ font-family: Arial;
+ margin-top: 100px;
+}

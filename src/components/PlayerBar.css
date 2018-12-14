@@ -1,0 +1,19 @@
+#buttons {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#time-control {
+    display: flex;
+    flex-direction: column;
+}
+
+#volume-control {
+    display: flex;
+    flex-direction: row;
+}
+
+.player-bar {
+  padding: 2px 0px;
+}

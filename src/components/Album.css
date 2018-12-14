@@ -1,0 +1,28 @@
+.album {
+  display: flex;
+  align-items: center;
+
+}
+
+#song-list {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 20px;
+  color: #444;
+  padding: 25px 0px;
+  width: 50%;
+  cursor: pointer;
+}
+
+#album-info {
+  display: inline-block;
+  width: 100%;
+  font-family: "proclamate light", cursive, serif;
+  font-weight: bold;
+
+}
+
+.album-details {
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+}
