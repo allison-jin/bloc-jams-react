@@ -5,7 +5,6 @@ import './App.css';
 import Landing from './components/Landing';
 import Library from './components/Library';
 import Album from './components/Album';
-import logo from './logo.png';
 
 class App extends Component {
   render() {
@@ -13,14 +12,15 @@ class App extends Component {
       <div className="App">
 
         <header>
-          <img className="logo" src={logo} alt="logo"  />
+          <Link to='/'>
+          <img src="./../assets/images/logo.png" alt="Bloc Jams Landing" />
+          </Link>
             <nav>
 
-              <Link className="link" to='/'>Landing</Link>
               <Link  className="link" to='/library'>Library</Link>
 
             </nav>
-            <h1>Bloc Jams</h1>
+
         </header>
 
         <main>
