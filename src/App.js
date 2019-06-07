@@ -13,12 +13,14 @@ class App extends Component {
 
         <header>
           <Link to='/'>
-          <img src="./../assets/images/logo.png" alt="Bloc Jams Landing" />
+          <p class="logo">jPlayer</p>
+          {/* <img class="logo" src="./../assets/images/logo.png" alt="Bloc Jams Landing" /> */}
           </Link>
-            <nav>
-
+          {/* navigation bar */}
+            <nav className="navbar">
+            <Link  className="link" to='/'>Home</Link>
               <Link  className="link" to='/library'>Library</Link>
-
+              
             </nav>
 
         </header>
